@@ -11,7 +11,8 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    delete _chatBot; 
+// _chatBot is created in ChatLogic, so it will only be deallocated over there
+//    delete _chatBot; 
 
     ////
     //// EOF STUDENT CODE
