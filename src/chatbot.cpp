@@ -53,7 +53,7 @@ ChatBot::ChatBot(const ChatBot& source)
     // data handles (not owned)
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
-    _chatLogic = source._chatLogic;
+    SetChatLogicHandle(source._chatLogic);
 
     // data handles (owned)
     _image = new wxBitmap(*source._image);
@@ -71,7 +71,7 @@ ChatBot& ChatBot::operator=(const ChatBot& source)
     // data handles (not owned)
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
-    _chatLogic = source._chatLogic;
+    SetChatLogicHandle(source._chatLogic);
 
     // data handles (owned)
     _image = new wxBitmap(*source._image);
@@ -87,7 +87,7 @@ ChatBot::ChatBot(ChatBot&& source)
     // data handles (not owned)
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
-    _chatLogic = source._chatLogic;
+    SetChatLogicHandle(source._chatLogic);
 
     // data handles (owned)
     _image = source._image;
@@ -111,7 +111,7 @@ ChatBot& ChatBot::operator=(ChatBot&& source)
     // data handles (not owned)
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
-    _chatLogic = source._chatLogic;
+    SetChatLogicHandle(source._chatLogic);
 
     // data handles (owned)
     _image = source._image;
@@ -123,6 +123,12 @@ ChatBot& ChatBot::operator=(ChatBot&& source)
     source._image = nullptr;
 
     return *this;
+}
+
+void ChatBot::SetChatLogicHandle(ChatLogic* chatLogic)
+{
+    _chatLogic = chatLogic;
+    _chatLogic->SetChatbotHandle(this);
 }
 
 ////
