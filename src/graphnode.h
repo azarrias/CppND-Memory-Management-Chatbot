@@ -53,7 +53,7 @@ public:
 
     void MoveEdgeToChildNode(std::unique_ptr<GraphEdge> edge);
     //void MoveChatbotHere(ChatBot *chatbot);
-    void MoveChatbotHere(ChatBot&& chatbot);
+    void MoveChatbotHere(ChatBot chatbot);
 
     ////
     //// EOF STUDENT CODE
